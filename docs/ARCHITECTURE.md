@@ -12,12 +12,12 @@ clover-file-organiser/
 ├── LICENSE
 ├── .gitignore
 ├── config/
-│   ├── config.example.json   # committed template
-│   └── config.json           # user's real config — gitignored
+│   ├── config.example.json    # committed template
+│   └── config.json            # user's real config — gitignored
 │  
 ├── config/
-│   ├── ARCHITECTURE.md       # notes file/project structure
-│   ├── CHANGELOG.md          # documents changes 
+│   ├── ARCHITECTURE.md        # notes file/project structure
+│   ├── CHANGELOG.md           # documents changes 
 │  
 ├── src/
 │   ├── __init__.py
@@ -28,14 +28,14 @@ clover-file-organiser/
 │   ├── config.py              # loads/validates config.json
 │   └── logger.py              # records what was moved, where, when
 │
-├── scripts/
-│   ├── enable-sorter.bat
-│   ├── disable-sorter.bat
-│   ├── install-task.ps1
-│   └── stop.bat
+├── os-scripts/windows/        # Create a seperate OS dir for Linux/iOS as needed
+│   ├── enable-sorter.bat      # Enabling the script to launch during login
+│   ├── disable-sorter.bat     # Disabling the script to launch during login
+│   ├── install-sorter.ps1     # Configuring the script as a Task Scheduler Instance.
+│   └── stop.bat               # Stopping the script.
 │
-└── tests/
-    ├── test_sorter.py
+└── tests/                     # Testing is key since files are modified and moved.
+    ├── test_sorter.py         # modified.
     ├── test_config.py
     └── fixtures/
 ```
