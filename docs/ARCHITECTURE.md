@@ -7,17 +7,18 @@ the code — not user-facing documentation (see `README.md` for that).
 ## File structure
 
 ```
-downloads-auto-sorter/
+clover-file-organiser/
 ├── README.md
-├── ARCHITECTURE.md
 ├── LICENSE
-├── CHANGELOG.md
 ├── .gitignore
-├── requirements.txt
 ├── config/
 │   ├── config.example.json   # committed template
 │   └── config.json           # user's real config — gitignored
-│
+│  
+├── config/
+│   ├── ARCHITECTURE.md       # notes file/project structure
+│   ├── CHANGELOG.md          # documents changes 
+│  
 ├── src/
 │   ├── __init__.py
 │   ├── main.py                # entry point — startup sequencing only
