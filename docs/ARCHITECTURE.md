@@ -37,7 +37,7 @@ clover-file-organiser/
 └── tests/                     # Testing is key since files are modified and moved.
     ├── test_sorter.py         # modified.
     ├── test_config.py
-    └── fixtures/
+    └── fixtures/              # Stores a sandboxed version of Download/Desktop for                          testing.
 ```
 
 ## Control flow
