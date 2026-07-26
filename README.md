@@ -106,6 +106,7 @@ double-click instead of a trip through the Task Scheduler UI.
   already has a file with the same name (rename with a suffix, skip, ask).
 - Logging — a record of what was moved where and when, so mistakes are
   traceable.
+    - Logging should be stored within `%APPDATA%` or alternate OS equivalents.
 - An "undo last move" command, as a quick escape hatch for automated moves.
 
 **Setup and configuration** (`1.2.0`)

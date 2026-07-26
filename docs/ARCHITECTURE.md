@@ -7,17 +7,19 @@ the code — not user-facing documentation (see `README.md` for that).
 ## File structure
 
 ```
-downloads-auto-sorter/
+clover-file-organiser/
 ├── README.md
-├── ARCHITECTURE.md
 ├── LICENSE
-├── CHANGELOG.md
 ├── .gitignore
-├── requirements.txt
 ├── config/
-│   ├── config.example.json   # committed template
-│   └── config.json           # user's real config — gitignored
-│
+│   ├── config.example.json    # committed template
+│   └── config.json            # user's real config — gitignored
+│  
+├── config/
+│   ├── ARCHITECTURE.md        # notes file/project structure
+│   ├── ROADMAP.md             # what features should be worked on first.
+│   ├── CHANGELOG.md           # documents changes 
+│  
 ├── src/
 │   ├── __init__.py
 │   ├── main.py                # entry point — startup sequencing only
@@ -27,16 +29,16 @@ downloads-auto-sorter/
 │   ├── config.py              # loads/validates config.json
 │   └── logger.py              # records what was moved, where, when
 │
-├── scripts/
-│   ├── enable-sorter.bat
-│   ├── disable-sorter.bat
-│   ├── install-task.ps1
-│   └── stop.bat
+├── os-scripts/windows/        # Create a seperate OS dir for Linux/iOS as needed
+│   ├── enable-sorter.bat      # Enabling the script to launch during login
+│   ├── disable-sorter.bat     # Disabling the script to launch during login
+│   ├── install-sorter.ps1     # Configuring the script as a Task Scheduler Instance.
+│   └── stop.bat               # Stopping the script.
 │
-└── tests/
-    ├── test_sorter.py
+└── tests/                     # Testing is key since files are modified and moved.
+    ├── test_sorter.py         # modified.
     ├── test_config.py
-    └── fixtures/
+    └── fixtures/              # Stores a sandboxed version of Download/Desktop for                          testing.
 ```
 
 ## Control flow
@@ -61,6 +63,31 @@ sorter.py
   → moves the file
   → calls logger.py to record it
 ```
+
+## Testing
+ 
+Tests live in `tests/` and use `pytest`. Run the full suite with:
+ 
+```
+pytest
+```
+ 
+Each test uses **fixtures** — temporary, disposable folders and files
+created fresh for that test — instead of touching real Downloads or config.
+This means tests are safe to run at any time: they can never move or
+delete an actual file on the machine.
+ 
+What's covered:
+- `test_sorter.py` — prefix detection, correct destination lookup, move
+  behavior, and (once added) collision handling.
+- `test_config.py` — config loading and validation, including malformed
+  or missing config files.
+
+Guideline for new features: anything that touches the filesystem (moving,
+renaming, deleting) should have a test using a fixture before it's
+considered done — this is what makes it safe to keep extending `sorter.py`
+release after release without re-verifying file safety by hand each time.
+
 
 ## Module responsibilities
 
