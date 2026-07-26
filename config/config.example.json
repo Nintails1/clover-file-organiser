@@ -1,0 +1,13 @@
+{
+  "watch_folder": "C:\\Users\\YourName\\Downloads",
+  "categories": {
+    "01": { "name": "Personal", "path": "C:\\Users\\YourName\\Documents\\01-Personal" },
+    "02": { "name": "Reading", "path": "C:\\Users\\YourName\\Documents\\02-Reading" },
+    "03": { "name": "Admin", "path": "C:\\Users\\YourName\\Documents\\03-Admin" },
+    "04": { "name": "Project Paper", "path": "C:\\Users\\YourName\\Documents\\04-Project-Paper" },
+    "05": { "name": "Other", "path": "C:\\Users\\YourName\\Documents\\05-Other" }
+  },
+  "ignore_extensions": [".crdownload", ".part", ".tmp"],
+  "rename_on_prompt_sort": true,
+  "stop_file": "C:\\Scripts\\stop.flag"
+}
