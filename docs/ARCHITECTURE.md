@@ -63,6 +63,31 @@ sorter.py
   → calls logger.py to record it
 ```
 
+## Testing
+ 
+Tests live in `tests/` and use `pytest`. Run the full suite with:
+ 
+```
+pytest
+```
+ 
+Each test uses **fixtures** — temporary, disposable folders and files
+created fresh for that test — instead of touching real Downloads or config.
+This means tests are safe to run at any time: they can never move or
+delete an actual file on the machine.
+ 
+What's covered:
+- `test_sorter.py` — prefix detection, correct destination lookup, move
+  behavior, and (once added) collision handling.
+- `test_config.py` — config loading and validation, including malformed
+  or missing config files.
+  
+Guideline for new features: anything that touches the filesystem (moving,
+renaming, deleting) should have a test using a fixture before it's
+considered done — this is what makes it safe to keep extending `sorter.py`
+release after release without re-verifying file safety by hand each time.
+
+
 ## Module responsibilities
 
 ### `main.py`
