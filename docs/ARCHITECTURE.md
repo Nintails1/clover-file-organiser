@@ -17,6 +17,7 @@ clover-file-organiser/
 │  
 ├── config/
 │   ├── ARCHITECTURE.md        # notes file/project structure
+│   ├── ROADMAP.md             # what features should be worked on first.
 │   ├── CHANGELOG.md           # documents changes 
 │  
 ├── src/
@@ -81,7 +82,7 @@ What's covered:
   behavior, and (once added) collision handling.
 - `test_config.py` — config loading and validation, including malformed
   or missing config files.
-  
+
 Guideline for new features: anything that touches the filesystem (moving,
 renaming, deleting) should have a test using a fixture before it's
 considered done — this is what makes it safe to keep extending `sorter.py`
